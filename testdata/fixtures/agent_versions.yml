@@ -1,0 +1,17 @@
+- id: 1
+  agent_version: "alpha-node/v1.0.0"
+  count: 10
+  created_at: '2023-01-01 00:00:00 UTC'
+  updated_at: '2023-01-01 00:00:00 UTC'
+
+- id: 2
+  agent_version: "beta-node/v0.9.0"
+  count: 15
+  created_at: '2023-01-02 00:00:00 UTC'
+  updated_at: '2023-01-02 00:00:00 UTC'
+
+- id: 3
+  agent_version: "delta-node/v2.1.0"
+  count: 20
+  created_at: '2023-01-03 00:00:00 UTC'
+  updated_at: '2023-01-03 00:00:00 UTC'

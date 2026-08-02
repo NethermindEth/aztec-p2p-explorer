@@ -1,0 +1,107 @@
+.pager-container {
+  font-size: var(--typography-font-size-2);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.pager-container p {
+  margin: 0;
+  color: #8e8c99;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.pager-rows-container {
+  display: flex;
+  align-items: center;
+  background: var(--panelDark_new, #05070a) !important;
+  border: 1px solid #666 !important;
+  color: white !important;
+  padding: 0.2rem 0.75rem !important;
+  place-content: center;
+}
+
+.pager-select {
+  cursor: pointer !important;
+  font-size: 0.875rem !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pager-navigation-container {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.pager-page-count {
+  background: #000;
+  border: 1px solid #666;
+  color: #8e8c99;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-align: center;
+  min-width: 120px;
+}
+
+.pager-page-count b {
+  color: white;
+}
+
+.pager-btns-container {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  background: #000;
+  border: 1px solid #666;
+  color: #8e8c99;
+  padding: 0.15rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.pager-btn {
+  width: 2rem !important;
+  height: 2rem !important;
+  padding: 0 !important;
+  color: white !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: color 0.2s ease !important;
+}
+
+.pager-btn:hover:not([data-disabled='true']) {
+  color: white !important;
+}
+
+.pager-btn[data-disabled='true'] {
+  cursor: not-allowed !important;
+}
+
+.pager-btn[data-disabled='true']:hover {
+  color: #666 !important;
+}
+
+@media (max-width: 768px) {
+  .pager-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .pager-navigation-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pager-btns-container {
+    justify-content: center;
+  }
+}

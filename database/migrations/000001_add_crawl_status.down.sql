@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE crawls 
+DROP COLUMN status;
+
+COMMIT;

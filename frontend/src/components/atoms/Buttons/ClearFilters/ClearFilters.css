@@ -1,0 +1,22 @@
+.clear-filters-button {
+  display: flex;
+  padding: 0rem var(--Spacing-4, 1rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--Spacing-3, 0.75rem);
+  flex: 1 0 0;
+  align-self: stretch;
+  color: var(--Colors-Neutral-Neutral-11, #b0b4ba);
+  font-size: var(--Typography-Font-size-3, 1rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--Typography-Line-height-3, 1.5rem);
+  letter-spacing: var(--Typography-Letter-spacing-3, 0rem);
+  border: 0px;
+  border-radius: var(--Radius-3-max, 0.375rem);
+  background: var(--Colors-Neutral-Neutral-Alpha-3, rgba(221, 234, 248, 0.08));
+}
+
+.clear-filters-button:hover {
+  background: rgb(56, 56, 56);
+}

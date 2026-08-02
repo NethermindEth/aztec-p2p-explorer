@@ -1,0 +1,11 @@
+- id: 1
+  as_number: 13335
+  as_name: "Cloudflare, Inc."
+
+- id: 2
+  as_number: 16509
+  as_name: "Amazon.com, Inc."
+
+- id: 3
+  as_number: 15169
+  as_name: "Google LLC"

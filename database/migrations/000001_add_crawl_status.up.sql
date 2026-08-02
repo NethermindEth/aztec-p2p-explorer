@@ -1,0 +1,6 @@
+BEGIN;
+
+ALTER TABLE crawls 
+ADD COLUMN status TEXT NOT NULL DEFAULT 'finished';
+
+COMMIT;

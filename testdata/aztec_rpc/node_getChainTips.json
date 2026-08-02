@@ -1,0 +1,40 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "proposed": {
+      "number": 6202,
+      "hash": "0x2cf72a2a09e1dba2fe4d777c15eeb7a6edd5fe512e2d43914efc4884896f78ec"
+    },
+    "checkpointed": {
+      "block": {
+        "number": 6201,
+        "hash": "0x197e263e25e424ae15c4fcaae443d405db62770a137f6e682b0e5f91d46842f4"
+      },
+      "checkpoint": {
+        "number": 5647,
+        "hash": "0x000099f643b88bf1d50bb21ba793fec74510ca348b064a4052566c7151810b4e"
+      }
+    },
+    "proven": {
+      "block": {
+        "number": 6185,
+        "hash": "0x21fb8e12dfbf9d423befe14e5f1b1609e10c468466a9391b771b6923cc2a0d52"
+      },
+      "checkpoint": {
+        "number": 5631,
+        "hash": "0x0045327d80b8c478cd8c42c858b758e0d86758263724bd6e19d174c2c8035600"
+      }
+    },
+    "finalized": {
+      "block": {
+        "number": 6185,
+        "hash": "0x21fb8e12dfbf9d423befe14e5f1b1609e10c468466a9391b771b6923cc2a0d52"
+      },
+      "checkpoint": {
+        "number": 5631,
+        "hash": "0x0045327d80b8c478cd8c42c858b758e0d86758263724bd6e19d174c2c8035600"
+      }
+    }
+  }
+}

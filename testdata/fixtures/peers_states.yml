@@ -1,0 +1,27 @@
+- id: 1
+  peer_id: 1
+  block_height: 1000
+  spec_version: "v1.0.0"
+  is_synced: true
+  created_at: '2023-01-01 00:00:00 UTC'
+
+- id: 2
+  peer_id: 2
+  block_height: 2000
+  spec_version: "v1.1.0"
+  is_synced: null
+  created_at: '2023-01-02 00:00:00 UTC'
+
+- id: 3
+  peer_id: 3
+  block_height: 3000
+  spec_version: "v1.2.0"
+  is_synced: true
+  created_at: '2023-01-03 00:00:00 UTC'
+
+- id: 4
+  peer_id: 1
+  block_height: 2000
+  spec_version: "v1.0.0"
+  is_synced: true
+  created_at: '2023-01-05 00:00:00 UTC'

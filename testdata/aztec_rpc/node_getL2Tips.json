@@ -1,0 +1,40 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "proposed": {
+      "number": 24589,
+      "hash": "0x05edf75760be673095433accff40edd58a9d37bea868703e9647f80328937a27"
+    },
+    "proven": {
+      "block": {
+        "number": 24575,
+        "hash": "0x0bad2f3bdefcdd772ffd0a2497398ceea28402c94e7aa625059bc87720cbe5b3"
+      },
+      "checkpoint": {
+        "number": 23345,
+        "hash": "0x00328fd94335abf659ce78ec49a2311d73c3232bea1831a7a9d1e1b77acd9640"
+      }
+    },
+    "finalized": {
+      "block": {
+        "number": 24575,
+        "hash": "0x0bad2f3bdefcdd772ffd0a2497398ceea28402c94e7aa625059bc87720cbe5b3"
+      },
+      "checkpoint": {
+        "number": 23345,
+        "hash": "0x00328fd94335abf659ce78ec49a2311d73c3232bea1831a7a9d1e1b77acd9640"
+      }
+    },
+    "checkpointed": {
+      "block": {
+        "number": 24589,
+        "hash": "0x05edf75760be673095433accff40edd58a9d37bea868703e9647f80328937a27"
+      },
+      "checkpoint": {
+        "number": 23359,
+        "hash": "0x0051feb4df9180772418a210486dcc9596b5252f71da5fea856c5cfc59e76bbb"
+      }
+    }
+  }
+}

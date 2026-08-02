@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Aztec P2P Explorer - Real-time Network Analytics</title>
+    <meta name="title" content="Aztec P2P Explorer - Real-time Network Analytics" />
+    <meta
+      name="description"
+      content="Explore the Aztec P2P network in real-time. Discover peer statistics, network topology, geographic distribution, and synchronization status across the Aztec blockchain network."
+    />
+    <meta
+      name="keywords"
+      content="Aztec, P2P, blockchain, network explorer, peer-to-peer, analytics, decentralized network"
+    />
+    <meta name="author" content="Nethermind" />
+    <meta name="theme-color" content="#1a1a1a" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aztecnodes.xyz/" />
+    <meta property="og:title" content="Aztec P2P Explorer - Real-time Network Analytics" />
+    <meta
+      property="og:description"
+      content="Explore the Aztec P2P network in real-time. Discover peer statistics, network topology, geographic distribution, and synchronization status across the Aztec blockchain network."
+    />
+    <!-- <meta property="og:image" content="https://aztecnodes.xyz/og-image.png" /> -->
+    <meta name="og:image" content="https://aztecnodes.xyz/twitter-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <meta property="og:image:alt" content="Aztec P2P Explorer - Network Visualization" />
+    <meta property="og:site_name" content="Aztec P2P Explorer" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://aztecnodes.xyz/" />
+    <meta name="twitter:title" content="Aztec P2P Explorer - Real-time Network Analytics" />
+    <meta
+      name="twitter:description"
+      content="Explore the Aztec P2P network in real-time. Discover peer statistics, network topology, geographic distribution, and synchronization status."
+    />
+    <meta name="twitter:image" content="https://aztecnodes.xyz/twitter-image.png" />
+    <meta name="twitter:image:alt" content="Aztec P2P Explorer - Network Visualization" />
+    <meta name="twitter:creator" content="@nethermindeth" />
+    <meta name="twitter:site" content="@nethermindeth" />
+
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/src/assets/logos/aztecIcon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Matomo -->
+    <script>
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['setDocumentTitle', document.domain + '/' + document.title]);
+      _paq.push(['setCookieDomain', '*.aztec.nethermind.io']);
+      _paq.push(['setDomains', ['*.aztec.nethermind.io']]);
+      _paq.push(['disableCookies']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function () {
+        var u = 'https://nethermind.matomo.cloud/';
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '7']);
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = 'https://cdn.matomo.cloud/nethermind.matomo.cloud/matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "vxsd06e80b");
+    </script>
+    <!-- End Microsoft Clarity -->
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

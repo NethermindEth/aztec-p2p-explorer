@@ -1,0 +1,15 @@
+- id: 1
+  code: "NA"
+  continent_name: "North America"
+
+- id: 2
+  code: "EU"
+  continent_name: "Europe"
+
+- id: 3
+  code: "AS"
+  continent_name: "Asia"
+
+- id: 4
+  code: "AN"
+  continent_name: "Antarctica"

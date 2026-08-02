@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  aztec-testnet-explorer:
+    build:
+      context: .
+      args:
+        - VITE_AZTEC_NETWORK=aztec-testnet
+    environment:
+      - AZTEC_NETWORK=aztec-testnet
+    ports:
+      - "8080:8080"
+    command: >
+      server
+      --network aztec-testnet
+      --db-dsn "postgres://explorer:explorer@postgres:5432/explorer_testnet?sslmode=disable"
+      --maxmind-dir /var/lib/GeoIP
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=explorer_testnet
+      - POSTGRES_USER=explorer
+      - POSTGRES_PASSWORD=explorer
+    volumes:
+      - postgres_testnet_data:/var/lib/postgresql/data
+    ports:
+      - "15432:5432"
+
+volumes:
+  postgres_testnet_data:

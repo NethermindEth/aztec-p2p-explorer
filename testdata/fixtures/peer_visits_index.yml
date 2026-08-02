@@ -1,0 +1,171 @@
+# Entries for crawl 1 (2023-01-01)
+- crawl_id: 1
+  visit_id: 1
+  peer_id: 1
+  peer_multi_hash: "QmPeer1"
+  agent_version: "alpha-node/v1.0.0"
+  client_name: "alpha-node"
+  continent_name: "North America"
+  continent_code: "NA"
+  country_name: "United States"
+  country_iso: "USA"
+  city_name: "New York"
+  latitude: 40.7128
+  longitude: -74.0060
+  as_name: "AS1"
+  as_number: 1
+  is_synced: true
+  block_height: 2000
+  spec_version: "0.13.0"
+  created_at: "2024-01-01T00:00:00Z"
+  last_seen: "2024-01-01T00:00:00Z"
+
+# Entries for crawl 2 (2023-01-02)
+- crawl_id: 2
+  visit_id: 8
+  peer_id: 1
+  peer_multi_hash: "QmPeer1"
+  agent_version: "alpha-node/v1.0.0"
+  client_name: "alpha-node"
+  continent_name: "North America"
+  continent_code: "NA"
+  country_name: "United States"
+  country_iso: "USA"
+  city_name: "New York"
+  latitude: 40.7128
+  longitude: -74.0060
+  as_name: "AS1"
+  as_number: 1
+  is_synced: true
+  block_height: 2000
+  spec_version: "0.13.0"
+  created_at: "2024-01-01T00:00:00Z"
+  last_seen: "2024-01-01T00:00:00Z"
+
+# Entries for crawl 3 (2023-01-03)
+- crawl_id: 3
+  visit_id: 1
+  peer_id: 1
+  peer_multi_hash: "QmPeer1"
+  agent_version: "alpha-node/v1.0.0"
+  client_name: "alpha-node"
+  continent_name: "North America"
+  continent_code: "NA"
+  country_name: "United States"
+  country_iso: "USA"
+  city_name: "New York"
+  latitude: 40.7128
+  longitude: -74.0060
+  as_name: "AS1"
+  as_number: 1
+  is_synced: true
+  block_height: 2000
+  spec_version: "0.13.0"
+  created_at: "2024-01-01T00:00:00Z"
+  last_seen: "2024-01-01T00:00:00Z"
+
+- crawl_id: 3
+  visit_id: 2
+  peer_id: 2
+  peer_multi_hash: "QmPeer2"
+  agent_version: "beta-node/v0.10.0"
+  client_name: "beta-node"
+  continent_name: "Europe"
+  continent_code: "EU"
+  country_name: "Germany"
+  country_iso: "DEU"
+  city_name: "Berlin"
+  latitude: 52.5200
+  longitude: 13.4050
+  as_name: "AS2"
+  as_number: 2
+  is_synced: false
+  block_height: 1500
+  spec_version: "0.13.0"
+  created_at: "2024-01-01T00:01:00Z"
+  last_seen: "2024-01-01T00:01:00Z"
+
+- crawl_id: 3
+  visit_id: 3
+  peer_id: 3
+  peer_multi_hash: "QmPeer3"
+  agent_version: "gamma-node/v0.5.0"
+  client_name: "gamma-node"
+  continent_name: "Asia"
+  continent_code: "AS"
+  country_name: "Japan"
+  country_iso: "JPN"
+  city_name: "Tokyo"
+  latitude: 35.6762
+  longitude: 139.6503
+  as_name: "AS3"
+  as_number: 3
+  is_synced: true
+  block_height: 2100
+  spec_version: "0.13.0"
+  created_at: "2024-01-01T00:02:00Z"
+  last_seen: "2024-01-01T00:02:00Z"
+
+- crawl_id: 3
+  visit_id: 4
+  peer_id: 4
+  peer_multi_hash: "QmPeer4"
+  agent_version: "delta-node/v0.3.0"
+  client_name: "delta-node"
+  continent_name: "North America"
+  continent_code: "NA"
+  country_name: "United States"
+  country_iso: "USA"
+  city_name: "San Francisco"
+  latitude: 37.7749
+  longitude: -122.4194
+  as_name: "AS4"
+  as_number: 4
+  is_synced: false
+  block_height: 1800
+  spec_version: "0.13.0"
+  created_at: "2024-01-01T00:03:00Z"
+  last_seen: "2024-01-01T00:03:00Z"
+
+# Additional peers with different spec_versions for CCV filtering tests
+- crawl_id: 3
+  visit_id: 5
+  peer_id: 5
+  peer_multi_hash: "QmPeer5"
+  agent_version: "alpha-node/v1.1.0"
+  client_name: "alpha-node"
+  continent_name: "Europe"
+  continent_code: "EU"
+  country_name: "France"
+  country_iso: "FRA"
+  city_name: "Paris"
+  latitude: 48.8566
+  longitude: 2.3522
+  as_name: "AS5"
+  as_number: 5
+  is_synced: true
+  block_height: 2200
+  spec_version: "0.12.0"
+  created_at: "2024-01-01T00:04:00Z"
+  last_seen: "2024-01-01T00:04:00Z"
+
+- crawl_id: 3
+  visit_id: 6
+  peer_id: 6
+  peer_multi_hash: "QmPeer6"
+  agent_version: "beta-node/v0.11.0"
+  client_name: "beta-node"
+  continent_name: "Asia"
+  continent_code: "AS"
+  country_name: "Singapore"
+  country_iso: "SGP"
+  city_name: "Singapore"
+  latitude: 1.3521
+  longitude: 103.8198
+  as_name: "AS6"
+  as_number: 6
+  is_synced: false
+  block_height: 1900
+  spec_version: "0.12.0"
+  created_at: "2024-01-01T00:05:00Z"
+  last_seen: "2024-01-01T00:05:00Z"

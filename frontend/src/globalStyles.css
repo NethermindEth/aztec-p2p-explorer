@@ -1,0 +1,41 @@
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation ease-in 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Custom Scrollbar to match the theme */
+/* WebKit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  scrollbar-width: thin;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--panel-panel);
+  border-radius: var(--radius-1, 0.25rem);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--panel-panel, rgba(255, 255, 255, 0.15));
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--panel-panel, rgba(255, 255, 255, 0.06));
+}
+
+.map-loader-backdrop {
+  display: block;
+  position: absolute;
+  width: 120%;
+  height: 100vh;
+  z-index: 10;
+  background-color: #00000066;
+  left: -10%;
+}

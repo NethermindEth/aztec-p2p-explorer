@@ -1,0 +1,29 @@
+.node-details-container {
+  background-color: var(--new-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  height: 100%;
+}
+
+.node-details-header {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+}
+
+.panel-node-details-second-row {
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .panel-node-details-container {
+    width: 100%;
+    padding: 0;
+    border: unset;
+    background: unset;
+  }
+}

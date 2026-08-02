@@ -1,0 +1,92 @@
+.starfield-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  contain: strict;
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+.starfield-layer {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('../../../assets/textures/stars-bg.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backface-visibility: hidden;
+  contain: strict;
+  content-visibility: auto;
+}
+
+.starfield-layer-1 {
+  opacity: 0.75;
+  background-size: 108% 108%;
+  background-position: 20% 30%;
+  transform: rotate(15deg) translate3d(calc(var(--mouse-x) * 8.8px), calc(var(--mouse-y) * 8.8px), 0);
+  will-change: transform;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.starfield-layer-2 {
+  opacity: 0.85;
+  background-size: 115% 115%;
+  background-position: 60% 50%;
+  transform: rotate(-20deg) translate3d(calc(var(--mouse-x) * 17.6px), calc(var(--mouse-y) * 17.6px), 0);
+  will-change: transform;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.starfield-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(5, 7, 10, 0.2) 100%);
+  pointer-events: none;
+  will-change: auto;
+}
+
+@media (max-width: 768px) {
+  .starfield-layer {
+    background-size: 140% 140%;
+    transform: none !important;
+    backface-visibility: visible !important;
+    will-change: auto !important;
+  }
+
+  .starfield-layer-1 {
+    opacity: 0.5;
+  }
+
+  .starfield-layer-2 {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield-layer {
+    transform: none !important;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .starfield-layer {
+    transform: none !important;
+    will-change: auto !important;
+    backface-visibility: visible !important;
+  }
+
+  .starfield-container {
+    contain: layout paint;
+  }
+}

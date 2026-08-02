@@ -1,0 +1,49 @@
+.statistics-filter {
+  position: relative;
+  z-index: 2;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: var(--Radius-3, 0.375rem);
+}
+
+.statistics-filter:hover,
+.statistics-filter.statistics-filter-open {
+  border-radius: var(--Radius-3, 0.375rem);
+  background: var(--navbar-nav-panel);
+}
+
+.statistics-filter.statistics-filter-open {
+  background: var(--panel-hover, #f1f1f1);
+  outline: 2px solid var(--accent-active-outline);
+  outline-offset: 0;
+}
+
+.statistics-filter-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.statistics-filter-label {
+  color: #fff;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  color: var(--navbar-nav-text);
+}
+
+.statistics-filter-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statistics-filter.statistics-filter-open .statistics-filter-label {
+  color: #202020;
+}
+
+.statistics-filter.statistics-filter-open .statistics-filter-icon {
+  filter: invert(1);
+}

@@ -1,0 +1,28 @@
+.modal-container {
+  background-color: var(--new-panel) !important;
+  border-radius: 0 !important;
+  border-color: var(--border-color) !important;
+  backdrop-filter: blur(20px);
+}
+
+.modal-block {
+  margin: 0 !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  display: flex !important;
+  margin-bottom: 16px !important;
+}
+
+.modal-block .modal-title {
+  margin: 0 !important;
+}
+
+.modal-btn {
+  width: 2rem !important;
+  height: 2rem !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  color: white !important;
+  border-radius: 0 !important;
+}

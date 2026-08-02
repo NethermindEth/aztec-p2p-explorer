@@ -1,0 +1,104 @@
+.network-stats__table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--new-panel);
+  backdrop-filter: blur(20px);
+}
+
+.network-stats__table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.network-stats__table-row {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #2c2f33;
+}
+
+.network-stats__table-row:last-child {
+  border-bottom: none;
+}
+
+.network-stats__table-row.selected,
+.network-stats__table-row:hover {
+  background: var(--list-hover);
+}
+
+.network-stats__table-header {
+  border: 1px solid var(--panel-outline);
+  background: var(--panelDark_new, #05070a);
+}
+
+.network-stats__table-header-cell,
+.network-stats__table-cell {
+  padding: 0.5rem 0.5rem;
+  text-align: left;
+  color: #fff;
+  font-size: var(--typography-font-size-3);
+  line-height: var(--typography-line-height-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: none !important;
+}
+
+.network-stats__table-header-cell {
+  color: #8e8c99;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: 1.25rem;
+  text-transform: capitalize;
+}
+
+.network-stats__table-header-cell > div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.network-stats__table-header-cell > div > div {
+  margin-top: 0.31rem;
+}
+
+.no_results {
+  text-align: center;
+  padding: 2.5rem 0rem !important;
+}
+
+@media (max-width: 768px) {
+  .network-stats__table-container {
+    width: 100%;
+    overflow-x: scroll;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-main) transparent;
+  }
+
+  .network-stats__table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    padding-bottom: 0.1px;
+  }
+
+  .network-stats__table {
+    width: 100%;
+    min-width: fit-content;
+  }
+
+  /* Scrollbar styling for WebKit-based browsers (Chrome, Safari, Edge) */
+  .network-stats__table-container::-webkit-scrollbar {
+    height: 0.25rem;
+  }
+
+  .network-stats__table-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .network-stats__table-container::-webkit-scrollbar-thumb {
+    background: var(--accent-blue, #3e63dd);
+    border-radius: var(--radius-1-max);
+  }
+}

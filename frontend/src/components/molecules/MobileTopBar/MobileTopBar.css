@@ -1,0 +1,45 @@
+.mobile-top-bar {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+  z-index: 1000;
+  background: var(--panel_new, #0c0e14);
+}
+
+.mobile-logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--Units-Unit, 0.5rem);
+}
+
+.mobile-logo {
+  display: flex;
+  height: 1.56rem;
+  width: auto;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.mobile-powered-by {
+  display: flex;
+  width: auto;
+  height: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.21844rem;
+}
+
+.mobile-powered-by span {
+  color: var(--Primary-Secondary_Text, #8e8c99);
+  font-family: 'Inter Variable', sans-serif;
+  font-size: 0.58894rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.84138rem;
+}

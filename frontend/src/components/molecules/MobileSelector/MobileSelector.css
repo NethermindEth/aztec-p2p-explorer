@@ -1,0 +1,76 @@
+.mobile-selector-content {
+  /* Match app panel styling */
+  width: var(--radix-select-trigger-width) !important;
+  min-width: var(--radix-select-trigger-width) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--panel-outline) !important;
+  background: var(--new-panel) !important;
+  backdrop-filter: blur(20px) !important;
+  z-index: 1000 !important;
+  margin-top: 6px !important;
+}
+
+.mobile-selector-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  color: var(--white) !important;
+  border-bottom: 1px solid var(--panel-outline) !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  width: 100% !important;
+  padding: 0.75rem !important;
+  align-self: stretch !important;
+}
+.mobile-selector-item[data-highlighted] {
+  background: var(--panel-panel-hover) !important;
+  color: var(--white) !important;
+}
+.mobile-selector-item[aria-disabled='true'],
+.mobile-selector-item[data-disabled] {
+  color: var(--secondary-text) !important;
+  opacity: 0.6 !important;
+}
+
+.mobile-selector-item:last-child {
+  border-bottom: none !important;
+}
+.mobile-selector-item[data-state='checked'] svg {
+  display: none !important;
+}
+
+.mobile-selector-item[data-state='checked']::after {
+  content: '✓';
+  color: var(--primary-main);
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.mobile-symbol-select-trigger svg {
+  margin-left: auto;
+}
+
+.mobile-symbol-select-trigger {
+  width: 100% !important;
+  color: var(--white) !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  padding: 0 0.5rem !important;
+}
+
+/* Accent outline while open using :has to target trigger state */
+.mobile-symbol-select-wrapper:has(.mobile-symbol-select-trigger[data-state='open']) {
+  border-color: var(--accent-active-outline) !important;
+}
+
+/* Radix portal content popover often gets its own border-radius; enforce square corners */
+.mobile-selector-content [data-radix-popper-content-wrapper] {
+  border-radius: 0 !important;
+}

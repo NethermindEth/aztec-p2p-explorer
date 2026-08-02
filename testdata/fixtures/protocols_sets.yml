@@ -1,0 +1,11 @@
+- id: 1
+  hash: "hash1"
+  protocol_ids: "{1}"
+
+- id: 2
+  hash: "hash2"
+  protocol_ids: "{2}"
+
+- id: 3
+  hash: "hash3"
+  protocol_ids: "{3}"

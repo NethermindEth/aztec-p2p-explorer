@@ -1,0 +1,84 @@
+.map-2d path {
+  stroke: var(--secondary-text);
+  stroke-width: 0.4px;
+  opacity: 1;
+}
+
+.map-2d path:focus,
+.map-2d path:active,
+.map-2d .rsm-geography:focus,
+.map-2d .rsm-geography:active {
+  outline: none !important;
+  stroke: var(--secondary-text) !important;
+  stroke-width: 0.4px !important;
+}
+
+.map-2d {
+  position: relative;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  padding: 4rem 0;
+  animation: fadeIn ease-in 1s;
+  /* overflow: hidden; */
+  /* border: 5px solid red; */
+}
+
+.gradient-background {
+  position: absolute;
+  width: 792px;
+  height: 795px;
+  border-radius: 795px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(30, 43, 84, 0.6) 0%, rgba(26, 40, 87, 0) 100%);
+  filter: blur(150px);
+  z-index: -1;
+}
+
+.gradient-bg-1 {
+  top: -10%;
+  left: 4%;
+}
+
+.gradient-bg-2 {
+  bottom: 7%;
+  right: 4%;
+}
+
+.composable-map {
+  width: 100%;
+  height: inherit;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.map-2d.unset-z-index {
+  z-index: unset;
+}
+
+.circle-class,
+.marker-class {
+  width: 100%;
+  border-radius: 9295.773px;
+  border: 1px solid var(--accent-active-outline);
+  background: var(--accent-active-outline);
+}
+
+.marker-text {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .map-2d {
+    padding: 0;
+    margin-top: 2rem;
+    min-height: 55vh;
+  }
+}

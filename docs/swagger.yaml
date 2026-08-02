@@ -1,0 +1,799 @@
+basePath: /api
+definitions:
+  repo.ASCount:
+    properties:
+      as_name:
+        type: string
+      as_number:
+        type: integer
+      count:
+        type: integer
+    type: object
+  repo.CityCount:
+    properties:
+      city_name:
+        type: string
+      count:
+        type: integer
+    type: object
+  repo.ContinentCount:
+    properties:
+      continent_code:
+        type: string
+      continent_name:
+        type: string
+      count:
+        type: integer
+    type: object
+  repo.CountryCount:
+    properties:
+      count:
+        type: integer
+      country_code:
+        type: string
+      country_name:
+        type: string
+    type: object
+  repo.PeerHistoryPoint:
+    properties:
+      date:
+        type: string
+      peer_count:
+        type: integer
+    type: object
+  repo.PeerInfo:
+    properties:
+      block_height:
+        type: integer
+      client:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      is_synced:
+        type: boolean
+      last_seen:
+        type: string
+      multi_addresses:
+        items:
+          $ref: '#/definitions/types.MultiAddr'
+        type: array
+      protocols:
+        items:
+          type: string
+        type: array
+      spec_version:
+        type: string
+    type: object
+  repo.PeerNeighbors:
+    properties:
+      id:
+        type: string
+      neighbors:
+        items:
+          type: string
+        type: array
+    type: object
+  repo.ProtocolCount:
+    properties:
+      count:
+        type: integer
+      protocol:
+        type: string
+    type: object
+  server.APIError:
+    properties:
+      message: {}
+      status:
+        type: integer
+    type: object
+  server.ASCountResponse:
+    properties:
+      networks:
+        items:
+          $ref: '#/definitions/repo.ASCount'
+        type: array
+    type: object
+  server.AgentCountResponse:
+    properties:
+      agents:
+        items:
+          $ref: '#/definitions/server.AgentVersionCounts'
+        type: array
+    type: object
+  server.AgentVersionCounts:
+    properties:
+      client_name:
+        type: string
+      total_count:
+        type: integer
+      versions:
+        items:
+          $ref: '#/definitions/server.VersionCount'
+        type: array
+    type: object
+  server.AnalyticsResponse:
+    properties:
+      cities:
+        items:
+          $ref: '#/definitions/repo.CityCount'
+        type: array
+      clients:
+        items:
+          $ref: '#/definitions/server.AgentVersionCounts'
+        type: array
+      continents:
+        items:
+          $ref: '#/definitions/repo.ContinentCount'
+        type: array
+      countries:
+        items:
+          $ref: '#/definitions/repo.CountryCount'
+        type: array
+      networks:
+        items:
+          $ref: '#/definitions/repo.ASCount'
+        type: array
+      peers_churn_in:
+        description: Number of new peers that were seen in the latest crawl but were
+          not seen in the previous crawls.
+        type: integer
+      peers_churn_out:
+        description: Number of peers that were previously seen but are no longer seen
+          in the latest crawl.
+        type: integer
+      peers_latest:
+        description: Number of peers that were seen in the latest crawl.
+        type: integer
+      protocols:
+        items:
+          $ref: '#/definitions/repo.ProtocolCount'
+        type: array
+      sync_status:
+        additionalProperties:
+          type: integer
+        type: object
+      total_peers:
+        description: Total number of peers that were seen in the network.
+        type: integer
+    type: object
+  server.CityCountResponse:
+    properties:
+      cities:
+        items:
+          $ref: '#/definitions/repo.CityCount'
+        type: array
+    type: object
+  server.Cluster:
+    properties:
+      city:
+        type: string
+      continent:
+        type: string
+      count:
+        type: integer
+      country:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      peer_ids:
+        items:
+          type: string
+        type: array
+    type: object
+  server.ContinentCountResponse:
+    properties:
+      continents:
+        items:
+          $ref: '#/definitions/repo.ContinentCount'
+        type: array
+    type: object
+  server.CountryCountResponse:
+    properties:
+      countries:
+        items:
+          $ref: '#/definitions/repo.CountryCount'
+        type: array
+    type: object
+  server.NeighborResponse:
+    properties:
+      id:
+        type: string
+      neighbors:
+        items:
+          type: string
+        type: array
+    type: object
+  server.NeighborsResponse:
+    properties:
+      neighbors:
+        items:
+          $ref: '#/definitions/repo.PeerNeighbors'
+        type: array
+    type: object
+  server.PeerCountResponse:
+    properties:
+      peers_churn_in:
+        type: integer
+      peers_churn_out:
+        type: integer
+      peers_latest:
+        type: integer
+      total_peers:
+        type: integer
+    type: object
+  server.PeerHistoryResponse:
+    properties:
+      history:
+        items:
+          $ref: '#/definitions/repo.PeerHistoryPoint'
+        type: array
+    type: object
+  server.PeerResponse:
+    properties:
+      block_height:
+        type: integer
+      client:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      is_synced:
+        type: boolean
+      last_seen:
+        type: string
+      multi_addresses:
+        items:
+          $ref: '#/definitions/types.MultiAddr'
+        type: array
+      protocols:
+        items:
+          type: string
+        type: array
+      spec_version:
+        type: string
+    type: object
+  server.PeersMapResponse:
+    properties:
+      active_peers:
+        type: integer
+      clusters:
+        items:
+          $ref: '#/definitions/server.Cluster'
+        type: array
+      total_peers:
+        type: integer
+    type: object
+  server.PeersResponse:
+    properties:
+      next_pagination_token:
+        type: string
+      peers:
+        items:
+          $ref: '#/definitions/repo.PeerInfo'
+        type: array
+      total_peers:
+        type: integer
+    type: object
+  server.ProtocolCountResponse:
+    properties:
+      protocols:
+        items:
+          $ref: '#/definitions/repo.ProtocolCount'
+        type: array
+    type: object
+  server.VersionCount:
+    properties:
+      count:
+        type: integer
+      version:
+        type: string
+    type: object
+  types.IPInfo:
+    properties:
+      as_name:
+        type: string
+      as_number:
+        type: integer
+      city_name:
+        type: string
+      continent_code:
+        type: string
+      continent_name:
+        type: string
+      country_iso:
+        type: string
+      country_name:
+        type: string
+      ip_address:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      port:
+        description: |-
+          Refers to the port number of the peer when connected via p2p.
+          Not the HTTP port or any other port.
+        type: integer
+    type: object
+  types.MultiAddr:
+    properties:
+      ip_info:
+        items:
+          $ref: '#/definitions/types.IPInfo'
+        type: array
+      maddr:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    name: aztec-p2p-explorer
+    url: http://github.com/NethermindEth/aztec-p2p-explorer
+  description: This is the aztec P2P Explorer API server.
+  title: Aztec P2P Explorer API
+  version: "1"
+paths:
+  /analytics:
+    get:
+      description: Get comprehensive analytics data about the network
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.AnalyticsResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get overall analytics
+      tags:
+      - Analytics
+  /analytics/cities:
+    get:
+      description: Get the number of peers grouped by city
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.CityCountResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer count by city
+      tags:
+      - Analytics
+  /analytics/clients:
+    get:
+      description: Get the number of peers grouped by client names and versions
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.AgentCountResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer count by client names and versions
+      tags:
+      - Analytics
+  /analytics/continents:
+    get:
+      description: Get the number of peers grouped by continent
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.ContinentCountResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer count by continent
+      tags:
+      - Analytics
+  /analytics/countries:
+    get:
+      description: Get the number of peers grouped by country
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.CountryCountResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer count by country
+      tags:
+      - Analytics
+  /analytics/networks:
+    get:
+      description: Get the number of peers grouped by Autonomous System Organization
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.ASCountResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer count by ASO
+      tags:
+      - Analytics
+  /analytics/peers:
+    get:
+      description: Get the total number of peers in the network and the number of
+        peers in the last crawl
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.PeerCountResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get total peer count and peers in the last crawl
+      tags:
+      - Analytics
+  /analytics/peers/history:
+    get:
+      description: Get the history of peer counts over time (daily)
+      parameters:
+      - description: Start date (RFC3339 format)
+        in: query
+        name: start
+        type: string
+      - description: End date (RFC3339 format)
+        in: query
+        name: end
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.PeerHistoryResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/server.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer count history
+      tags:
+      - Analytics
+  /analytics/protocols:
+    get:
+      description: Get the number of peers grouped by protocol
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.ProtocolCountResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer count by protocol
+      tags:
+      - Analytics
+  /health:
+    get:
+      description: Chech health
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Check health
+      tags:
+      - API
+  /peers:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of peers based on the provided query options
+      parameters:
+      - description: Peer ID (e.g. 12...)
+        in: query
+        name: id
+        type: string
+      - collectionFormat: csv
+        description: Continent names
+        in: query
+        items:
+          type: string
+        name: continents
+        type: array
+      - collectionFormat: csv
+        description: Continent codes
+        in: query
+        items:
+          type: string
+        name: continents_code
+        type: array
+      - collectionFormat: csv
+        description: Country names
+        in: query
+        items:
+          type: string
+        name: countries
+        type: array
+      - collectionFormat: csv
+        description: Country iso codes
+        in: query
+        items:
+          type: string
+        name: countries_codes
+        type: array
+      - collectionFormat: csv
+        description: City names
+        in: query
+        items:
+          type: string
+        name: cities
+        type: array
+      - collectionFormat: csv
+        description: Names of Autonomous System Organizations
+        in: query
+        items:
+          type: string
+        name: as_names
+        type: array
+      - collectionFormat: csv
+        description: Numbers of Autonomous System Organizations
+        in: query
+        items:
+          type: string
+        name: as_numbers
+        type: array
+      - collectionFormat: csv
+        description: Client names (e.g. aztec-node)
+        in: query
+        items:
+          type: string
+        name: clients
+        type: array
+      - description: Sync status
+        in: query
+        name: synced
+        type: boolean
+      - description: Sort column (created_at, last_seen, block_height)
+        in: query
+        name: sort
+        type: string
+      - description: Sort order (asc or desc)
+        in: query
+        name: order
+        type: string
+      - description: 'Include peers from latest crawl only (default: false, all crawls)'
+        in: query
+        name: latest
+        type: boolean
+      - description: Number of items per page
+        in: query
+        name: page_size
+        type: integer
+      - description: Pagination token
+        in: query
+        name: pagination_token
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.PeersResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/server.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get a list of peers
+      tags:
+      - Peers
+  /peers/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get detailed information about a specific peer
+      parameters:
+      - description: Peer ID (e.g. 12...)
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.PeerResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get a peer by ID
+      tags:
+      - Peers
+  /peers/{id}/neighbors:
+    get:
+      consumes:
+      - application/json
+      description: Get the list of neighbors for a specific peer
+      parameters:
+      - description: Peer ID (e.g. 12...)
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.NeighborResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer neighbors
+      tags:
+      - Peers
+  /peers/map:
+    get:
+      consumes:
+      - application/json
+      description: Get geographical clusters of peers with their locations and counts
+      parameters:
+      - collectionFormat: csv
+        description: Continent names
+        in: query
+        items:
+          type: string
+        name: continents
+        type: array
+      - collectionFormat: csv
+        description: Continent codes
+        in: query
+        items:
+          type: string
+        name: continents_code
+        type: array
+      - collectionFormat: csv
+        description: Country names
+        in: query
+        items:
+          type: string
+        name: countries
+        type: array
+      - collectionFormat: csv
+        description: Country iso codes
+        in: query
+        items:
+          type: string
+        name: countries_codes
+        type: array
+      - collectionFormat: csv
+        description: City names
+        in: query
+        items:
+          type: string
+        name: cities
+        type: array
+      - collectionFormat: csv
+        description: Names of Autonomous System Organisations
+        in: query
+        items:
+          type: string
+        name: as_names
+        type: array
+      - collectionFormat: csv
+        description: Numbers of Autonomous System Organisations
+        in: query
+        items:
+          type: string
+        name: as_numbers
+        type: array
+      - collectionFormat: csv
+        description: Client names (e.g. aztec-node)
+        in: query
+        items:
+          type: string
+        name: clients
+        type: array
+      - description: Sync status
+        in: query
+        name: synced
+        type: boolean
+      - description: 'Include peers from latest crawl only (default: true)'
+        in: query
+        name: latest
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.PeersMapResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/server.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get peer clusters for map visualisation
+      tags:
+      - Peers
+  /peers/neighbors:
+    get:
+      consumes:
+      - application/json
+      description: Get the list of neighbors for all peers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.NeighborsResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/server.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/server.APIError'
+      summary: Get every peer's neighbors
+      tags:
+      - Peers
+swagger: "2.0"

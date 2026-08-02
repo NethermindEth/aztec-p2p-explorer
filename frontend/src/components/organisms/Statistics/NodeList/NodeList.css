@@ -1,0 +1,24 @@
+.network-stats-container {
+  display: flex;
+  width: 100%;
+}
+
+.network-stats-list {
+  flex: 1;
+  transition: flex 0.3s ease;
+}
+
+.network-stats-panel {
+  flex: 1;
+  box-sizing: border-box;
+  transition: flex 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .network-stats-list {
+    width: 100%;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+  }
+}

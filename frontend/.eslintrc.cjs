@@ -1,0 +1,28 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: '18.2' } },
+  plugins: ['react-refresh', 'react', 'react-hooks', '@typescript-eslint', 'prettier'],
+  rules: {
+    'react/jsx-no-target-blank': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'prettier/prettier': 'error',
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
+};

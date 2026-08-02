@@ -1,0 +1,11 @@
+- multi_address_id: 1
+  ip_address_id: 1
+
+- multi_address_id: 2
+  ip_address_id: 2
+
+- multi_address_id: 3
+  ip_address_id: 3
+
+- multi_address_id: 3
+  ip_address_id: 4

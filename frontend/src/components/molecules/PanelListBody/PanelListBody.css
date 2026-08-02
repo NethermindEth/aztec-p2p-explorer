@@ -1,0 +1,43 @@
+.panel-list-body {
+  gap: 24px;
+  width: fit-content;
+}
+
+.panel-list-body-container .panel-section-container-listview {
+  min-width: 180px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.panel-section-item-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.panel-row {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.panel-second-row {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .panel-body-container {
+    border: unset;
+    background: unset;
+    margin-top: 1.5rem;
+  }
+  .panel-body {
+    border: unset;
+    background: unset;
+    margin: unset;
+    margin-top: 1.5rem;
+  }
+}

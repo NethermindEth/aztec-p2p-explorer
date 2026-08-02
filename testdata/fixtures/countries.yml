@@ -1,0 +1,14 @@
+- id: 1
+  iso_code: "US"
+  country_name: "United States"
+  continent_id: 1
+
+- id: 2
+  iso_code: "GB"
+  country_name: "United Kingdom"
+  continent_id: 2
+
+- id: 3
+  iso_code: "JP"
+  country_name: "Japan"
+  continent_id: 3

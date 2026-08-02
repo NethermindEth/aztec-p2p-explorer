@@ -1,0 +1,38 @@
+# Use the official Golang image
+FROM golang:1.24.4-bookworm AS go-build-env
+
+# Update the date to bust the cache and trigger downloading dependencies
+ENV P2P_EXPLORER_DEPENDENCIES_LAST_UPDATED=2024-06-21
+
+# Install necessary dependencies
+RUN apt-get update && apt-get install -y  \
+    file \
+    make \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set up the working directory
+WORKDIR /code
+
+# Copy go mod files
+COPY go.* ./
+
+# Download dependencies
+RUN go mod download
+
+# Copy the rest of the backend code
+COPY . .
+
+RUN make deps
+
+# Build the backend
+RUN make build-production
+
+# Use a minimal image for the final stage
+FROM debian:bookworm-slim
+
+# Copy the built binary from the build stage
+COPY --from=go-build-env /code/aztec-p2p-explorer /usr/local/bin/
+
+# Set the entry point
+CMD ["/usr/local/bin/aztec-p2p-explorer", "server"]

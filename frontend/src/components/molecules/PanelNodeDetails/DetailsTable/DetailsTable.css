@@ -1,0 +1,26 @@
+.details-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+}
+
+.detail-row {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .details-table {
+    padding: 0;
+  }
+
+  .detail-row {
+    padding: 1rem 1rem 0.5rem 0.5rem;
+  }
+}

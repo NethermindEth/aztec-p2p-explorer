@@ -1,0 +1,32 @@
+- id: 1
+  state: "completed"
+  started_at: '2023-01-01 00:00:00 UTC'
+  finished_at: '2023-01-01 01:00:00 UTC'
+  crawled_peers: 100
+  dialable_peers: 80
+  undialable_peers: 20
+  remaining_peers: 0
+  version: "v1.0.0"
+  status: "finished"
+
+- id: 2
+  state: "in_progress"
+  started_at: '2023-01-02 00:00:00 UTC'
+  finished_at: '2023-01-02 02:00:00 UTC'
+  crawled_peers: 50
+  dialable_peers: 40
+  undialable_peers: 10
+  remaining_peers: 50
+  status: "finished"
+  version: "v1.1.0"
+
+- id: 3
+  state: "failed"
+  started_at: '2023-01-03 00:00:00 UTC'
+  finished_at: '2023-01-03 00:30:00 UTC'
+  crawled_peers: 30
+  dialable_peers: 25
+  undialable_peers: 5
+  remaining_peers: 70
+  status: "finished"
+  version: "v1.2.0"

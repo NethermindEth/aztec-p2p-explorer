@@ -1,0 +1,104 @@
+- id: 1
+  peer_id: 1
+  agent_version_id: 1
+  protocols_set_id: 1
+  connect_error: null
+  crawl_error: null
+  visit_started_at: '2023-01-01 00:00:00 UTC'
+  visit_ended_at: '2023-01-01 00:01:00 UTC'
+  connect_duration: "00:00:30"
+  crawl_duration: "00:00:30"
+  multi_address_ids: "{1}"
+  crawl_id: 1
+
+- id: 2
+  peer_id: 2
+  agent_version_id: 2
+  protocols_set_id: 2
+  connect_error: null
+  crawl_error: null
+  visit_started_at: '2023-01-02 00:00:00 UTC'
+  visit_ended_at: '2023-01-02 00:01:30 UTC'
+  connect_duration: "00:01:00"
+  crawl_duration: "00:00:30"
+  multi_address_ids: "{2}"
+  crawl_id: 3
+
+- id: 3
+  peer_id: 3
+  agent_version_id: 3
+  protocols_set_id: 3
+  connect_error: null
+  crawl_error: "Crawl interrupted"
+  visit_started_at: '2023-01-03 00:00:00 UTC'
+  visit_ended_at: '2023-01-03 00:02:00 UTC'
+  connect_duration: "00:00:30"
+  crawl_duration: "00:01:30"
+  multi_address_ids: "{3}"
+  crawl_id: 3
+
+- id: 4
+  peer_id: 1
+  agent_version_id: 1
+  protocols_set_id: 1
+  connect_error: null
+  crawl_error: null
+  visit_started_at: '2023-01-03 00:00:00 UTC'
+  visit_ended_at: '2023-01-03 00:01:00 UTC'
+  connect_duration: "00:00:30"
+  crawl_duration: "00:00:30"
+  multi_address_ids: "{1}"
+  crawl_id: 3
+
+- id: 5
+  peer_id: 4
+  agent_version_id: 2
+  protocols_set_id: 3
+  connect_error: null
+  crawl_error: null
+  visit_started_at: '2023-01-03 00:00:00 UTC'
+  visit_ended_at: '2023-01-03 00:01:00 UTC'
+  connect_duration: "00:00:30"
+  crawl_duration: "00:00:30"
+  multi_address_ids: "{1}"
+  crawl_id: 3
+
+- id: 6
+  peer_id: 5
+  agent_version_id: 1
+  protocols_set_id: 1
+  connect_error: null
+  crawl_error: null
+  visit_started_at: '2023-01-03 00:00:00 UTC'
+  visit_ended_at: '2023-01-03 00:01:00 UTC'
+  connect_duration: "00:00:30"
+  crawl_duration: "00:00:30"
+  multi_address_ids: "{1}"
+  crawl_id: 3
+
+- id: 7
+  peer_id: 6
+  agent_version_id: 2
+  protocols_set_id: 2
+  connect_error: null
+  crawl_error: null
+  visit_started_at: '2023-01-03 00:00:00 UTC'
+  visit_ended_at: '2023-01-03 00:01:00 UTC'
+  connect_duration: "00:00:30"
+  crawl_duration: "00:00:30"
+  multi_address_ids: "{2}"
+  crawl_id: 3
+
+# Additional visit for crawl 2 (for peer history test)
+- id: 8
+  peer_id: 1
+  agent_version_id: 1
+  protocols_set_id: 1
+  connect_error: null
+  crawl_error: null
+  visit_started_at: '2023-01-02 00:00:00 UTC'
+  visit_ended_at: '2023-01-02 00:01:00 UTC'
+  connect_duration: "00:00:30"
+  crawl_duration: "00:00:30"
+  multi_address_ids: "{1}"
+  crawl_id: 2

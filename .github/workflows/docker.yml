@@ -1,0 +1,33 @@
+name: Build docker container
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  attestations: write
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/reusable-test.yml
+
+  Build:
+    needs: test
+    uses: NethermindEth/github-workflows/.github/workflows/docker-build-push-jfrog.yaml@v1.11.4
+    with:
+      group_name: modular
+      image_name: aztec-p2p-explorer
+      platforms: "linux/amd64"
+      ignore_trivy: true
+      push: ${{ github.event_name != 'pull_request' }}

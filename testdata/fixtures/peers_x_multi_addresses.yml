@@ -1,0 +1,11 @@
+- peer_id: 1
+  multi_address_id: 1
+
+- peer_id: 2
+  multi_address_id: 2
+
+- peer_id: 3
+  multi_address_id: 3
+
+- peer_id: 4
+  multi_address_id: 1

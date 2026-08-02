@@ -1,0 +1,70 @@
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border-color);
+  background-color: var(--new-panel);
+  backdrop-filter: blur(20px);
+}
+
+.chart-wrapper {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.chart-mobile {
+  height: 30vh;
+  width: 100%;
+}
+
+.chart-desktop {
+  height: 30vh;
+  width: 80%;
+}
+
+.legend-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1rem 1rem 1rem;
+  width: 100%;
+}
+
+.mobile-legend {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.desktop-legend {
+  flex-direction: row;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: var(--white);
+}
+
+.legend-item-mobile {
+  width: 100%;
+}
+
+.legend-item-desktop {
+  width: 50%;
+}
+
+.legend-color-box {
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}

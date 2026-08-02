@@ -1,0 +1,11 @@
+output   = "database/models"
+wipe     = true
+
+[psql]
+dbname = "explorer"
+host = "localhost"
+port = 15432
+user = "explorer"
+pass = "explorer"
+sslmode = "disable"
+blacklist = ["schema_migrations"]

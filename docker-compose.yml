@@ -1,0 +1,74 @@
+networks:
+  aztec-p2p-explorer-net:
+    external: false
+
+services:
+  p2p-explorer:
+    image: nethermindeth/aztec-p2p-explorer
+    profiles: ["dev"]
+    command: p2p-explorer server
+    environment:
+      - TURNSTILE_MODE=${TURNSTILE_MODE:-disabled}
+      - TURNSTILE_SECRET=${TURNSTILE_SECRET}
+      - TURNSTILE_ALLOWED_HOSTNAMES=${TURNSTILE_ALLOWED_HOSTNAMES}
+      - TURNSTILE_EXPECTED_ACTION=${TURNSTILE_EXPECTED_ACTION}
+      - TURNSTILE_TIMEOUT_MS=${TURNSTILE_TIMEOUT_MS:-2000}
+      - TURNSTILE_CACHE_TTL_SECONDS=${TURNSTILE_CACHE_TTL_SECONDS:-240}
+      - TURNSTILE_BIND_CACHE_TO_IP_UA=${TURNSTILE_BIND_CACHE_TO_IP_UA:-true}
+      - AZTEC_P2P_EXPLORER_RPC_URL=${AZTEC_P2P_EXPLORER_RPC_URL}
+    networks:
+      - aztec-p2p-explorer-net
+    ports:
+      - "127.0.0.1:8080:8080/tcp"
+    volumes:
+      - geoipupdate_data:/usr/share/GeoIP:ro
+
+  redis:
+    image: redis/redis-stack-server:latest
+    ports:
+      - 6379:6379
+    networks:
+      - aztec-p2p-explorer-net
+
+  geoipupdate:
+    container_name: geoipupdate
+    image: ghcr.io/maxmind/geoipupdate:v7.0.1
+    restart: unless-stopped
+    networks:
+      - aztec-p2p-explorer-net
+    volumes:
+      - geoipupdate_data:/usr/share/GeoIP  # Share the GeoIP data volume
+
+  test-database:
+    image: postgres:16.1
+    environment:
+      POSTGRES_DB: explorer
+      POSTGRES_USER: explorer
+      POSTGRES_PASSWORD: explorer
+      PGDATA: /pgtmpfs
+    ports:
+      - "15432:5432"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "-d",
+          "explorer",
+          "-U",
+          "explorer",
+        ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    restart: on-failure
+    stdin_open: true
+    tty: true
+    networks:
+      - aztec-p2p-explorer-net
+    tmpfs:
+      - /pgtmpfs
+
+volumes:
+  geoipupdate_data:
+    driver: local

@@ -1,0 +1,17 @@
+- id: 1
+  date: '2023-01-01'
+  peer_count: 80
+  created_at: '2023-01-01 01:00:00 UTC'
+  updated_at: '2023-01-01 01:00:00 UTC'
+
+- id: 2
+  date: '2023-01-02'
+  peer_count: 40
+  created_at: '2023-01-02 02:00:00 UTC'
+  updated_at: '2023-01-02 02:00:00 UTC'
+
+- id: 3
+  date: '2023-01-03'
+  peer_count: 25
+  created_at: '2023-01-03 00:30:00 UTC'
+  updated_at: '2023-01-03 00:30:00 UTC'

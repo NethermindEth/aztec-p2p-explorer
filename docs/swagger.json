@@ -1,0 +1,1203 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is the aztec P2P Explorer API server.",
+        "title": "Aztec P2P Explorer API",
+        "contact": {
+            "name": "aztec-p2p-explorer",
+            "url": "http://github.com/NethermindEth/aztec-p2p-explorer"
+        },
+        "version": "1"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api",
+    "paths": {
+        "/analytics": {
+            "get": {
+                "description": "Get comprehensive analytics data about the network",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get overall analytics",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.AnalyticsResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/cities": {
+            "get": {
+                "description": "Get the number of peers grouped by city",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get peer count by city",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.CityCountResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/clients": {
+            "get": {
+                "description": "Get the number of peers grouped by client names and versions",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get peer count by client names and versions",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.AgentCountResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/continents": {
+            "get": {
+                "description": "Get the number of peers grouped by continent",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get peer count by continent",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ContinentCountResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/countries": {
+            "get": {
+                "description": "Get the number of peers grouped by country",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get peer count by country",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.CountryCountResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/networks": {
+            "get": {
+                "description": "Get the number of peers grouped by Autonomous System Organization",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get peer count by ASO",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ASCountResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/peers": {
+            "get": {
+                "description": "Get the total number of peers in the network and the number of peers in the last crawl",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get total peer count and peers in the last crawl",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.PeerCountResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/peers/history": {
+            "get": {
+                "description": "Get the history of peer counts over time (daily)",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get peer count history",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Start date (RFC3339 format)",
+                        "name": "start",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "End date (RFC3339 format)",
+                        "name": "end",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.PeerHistoryResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/analytics/protocols": {
+            "get": {
+                "description": "Get the number of peers grouped by protocol",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analytics"
+                ],
+                "summary": "Get peer count by protocol",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.ProtocolCountResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "description": "Chech health",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "API"
+                ],
+                "summary": "Check health",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/peers": {
+            "get": {
+                "description": "Get a list of peers based on the provided query options",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Peers"
+                ],
+                "summary": "Get a list of peers",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Peer ID (e.g. 12...)",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Continent names",
+                        "name": "continents",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Continent codes",
+                        "name": "continents_code",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Country names",
+                        "name": "countries",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Country iso codes",
+                        "name": "countries_codes",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "City names",
+                        "name": "cities",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Names of Autonomous System Organizations",
+                        "name": "as_names",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Numbers of Autonomous System Organizations",
+                        "name": "as_numbers",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Client names (e.g. aztec-node)",
+                        "name": "clients",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "Sync status",
+                        "name": "synced",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Sort column (created_at, last_seen, block_height)",
+                        "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Sort order (asc or desc)",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "Include peers from latest crawl only (default: false, all crawls)",
+                        "name": "latest",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of items per page",
+                        "name": "page_size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Pagination token",
+                        "name": "pagination_token",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.PeersResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/peers/map": {
+            "get": {
+                "description": "Get geographical clusters of peers with their locations and counts",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Peers"
+                ],
+                "summary": "Get peer clusters for map visualisation",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Continent names",
+                        "name": "continents",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Continent codes",
+                        "name": "continents_code",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Country names",
+                        "name": "countries",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Country iso codes",
+                        "name": "countries_codes",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "City names",
+                        "name": "cities",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Names of Autonomous System Organisations",
+                        "name": "as_names",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Numbers of Autonomous System Organisations",
+                        "name": "as_numbers",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "Client names (e.g. aztec-node)",
+                        "name": "clients",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "Sync status",
+                        "name": "synced",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "Include peers from latest crawl only (default: true)",
+                        "name": "latest",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.PeersMapResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/peers/neighbors": {
+            "get": {
+                "description": "Get the list of neighbors for all peers",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Peers"
+                ],
+                "summary": "Get every peer's neighbors",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.NeighborsResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/peers/{id}": {
+            "get": {
+                "description": "Get detailed information about a specific peer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Peers"
+                ],
+                "summary": "Get a peer by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Peer ID (e.g. 12...)",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.PeerResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        },
+        "/peers/{id}/neighbors": {
+            "get": {
+                "description": "Get the list of neighbors for a specific peer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Peers"
+                ],
+                "summary": "Get peer neighbors",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Peer ID (e.g. 12...)",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/server.NeighborResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/server.APIError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "repo.ASCount": {
+            "type": "object",
+            "properties": {
+                "as_name": {
+                    "type": "string"
+                },
+                "as_number": {
+                    "type": "integer"
+                },
+                "count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "repo.CityCount": {
+            "type": "object",
+            "properties": {
+                "city_name": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "repo.ContinentCount": {
+            "type": "object",
+            "properties": {
+                "continent_code": {
+                    "type": "string"
+                },
+                "continent_name": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "repo.CountryCount": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "country_code": {
+                    "type": "string"
+                },
+                "country_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "repo.PeerHistoryPoint": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "peer_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "repo.PeerInfo": {
+            "type": "object",
+            "properties": {
+                "block_height": {
+                    "type": "integer"
+                },
+                "client": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "is_synced": {
+                    "type": "boolean"
+                },
+                "last_seen": {
+                    "type": "string"
+                },
+                "multi_addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.MultiAddr"
+                    }
+                },
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "spec_version": {
+                    "type": "string"
+                }
+            }
+        },
+        "repo.PeerNeighbors": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "neighbors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "repo.ProtocolCount": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "protocol": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.APIError": {
+            "type": "object",
+            "properties": {
+                "message": {},
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ASCountResponse": {
+            "type": "object",
+            "properties": {
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.ASCount"
+                    }
+                }
+            }
+        },
+        "server.AgentCountResponse": {
+            "type": "object",
+            "properties": {
+                "agents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.AgentVersionCounts"
+                    }
+                }
+            }
+        },
+        "server.AgentVersionCounts": {
+            "type": "object",
+            "properties": {
+                "client_name": {
+                    "type": "string"
+                },
+                "total_count": {
+                    "type": "integer"
+                },
+                "versions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.VersionCount"
+                    }
+                }
+            }
+        },
+        "server.AnalyticsResponse": {
+            "type": "object",
+            "properties": {
+                "cities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.CityCount"
+                    }
+                },
+                "clients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.AgentVersionCounts"
+                    }
+                },
+                "continents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.ContinentCount"
+                    }
+                },
+                "countries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.CountryCount"
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.ASCount"
+                    }
+                },
+                "peers_churn_in": {
+                    "description": "Number of new peers that were seen in the latest crawl but were not seen in the previous crawls.",
+                    "type": "integer"
+                },
+                "peers_churn_out": {
+                    "description": "Number of peers that were previously seen but are no longer seen in the latest crawl.",
+                    "type": "integer"
+                },
+                "peers_latest": {
+                    "description": "Number of peers that were seen in the latest crawl.",
+                    "type": "integer"
+                },
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.ProtocolCount"
+                    }
+                },
+                "sync_status": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer"
+                    }
+                },
+                "total_peers": {
+                    "description": "Total number of peers that were seen in the network.",
+                    "type": "integer"
+                }
+            }
+        },
+        "server.CityCountResponse": {
+            "type": "object",
+            "properties": {
+                "cities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.CityCount"
+                    }
+                }
+            }
+        },
+        "server.Cluster": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "continent": {
+                    "type": "string"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "peer_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "server.ContinentCountResponse": {
+            "type": "object",
+            "properties": {
+                "continents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.ContinentCount"
+                    }
+                }
+            }
+        },
+        "server.CountryCountResponse": {
+            "type": "object",
+            "properties": {
+                "countries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.CountryCount"
+                    }
+                }
+            }
+        },
+        "server.NeighborResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "neighbors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "server.NeighborsResponse": {
+            "type": "object",
+            "properties": {
+                "neighbors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.PeerNeighbors"
+                    }
+                }
+            }
+        },
+        "server.PeerCountResponse": {
+            "type": "object",
+            "properties": {
+                "peers_churn_in": {
+                    "type": "integer"
+                },
+                "peers_churn_out": {
+                    "type": "integer"
+                },
+                "peers_latest": {
+                    "type": "integer"
+                },
+                "total_peers": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.PeerHistoryResponse": {
+            "type": "object",
+            "properties": {
+                "history": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.PeerHistoryPoint"
+                    }
+                }
+            }
+        },
+        "server.PeerResponse": {
+            "type": "object",
+            "properties": {
+                "block_height": {
+                    "type": "integer"
+                },
+                "client": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "is_synced": {
+                    "type": "boolean"
+                },
+                "last_seen": {
+                    "type": "string"
+                },
+                "multi_addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.MultiAddr"
+                    }
+                },
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "spec_version": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.PeersMapResponse": {
+            "type": "object",
+            "properties": {
+                "active_peers": {
+                    "type": "integer"
+                },
+                "clusters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/server.Cluster"
+                    }
+                },
+                "total_peers": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.PeersResponse": {
+            "type": "object",
+            "properties": {
+                "next_pagination_token": {
+                    "type": "string"
+                },
+                "peers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.PeerInfo"
+                    }
+                },
+                "total_peers": {
+                    "type": "integer"
+                }
+            }
+        },
+        "server.ProtocolCountResponse": {
+            "type": "object",
+            "properties": {
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/repo.ProtocolCount"
+                    }
+                }
+            }
+        },
+        "server.VersionCount": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "types.IPInfo": {
+            "type": "object",
+            "properties": {
+                "as_name": {
+                    "type": "string"
+                },
+                "as_number": {
+                    "type": "integer"
+                },
+                "city_name": {
+                    "type": "string"
+                },
+                "continent_code": {
+                    "type": "string"
+                },
+                "continent_name": {
+                    "type": "string"
+                },
+                "country_iso": {
+                    "type": "string"
+                },
+                "country_name": {
+                    "type": "string"
+                },
+                "ip_address": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "port": {
+                    "description": "Refers to the port number of the peer when connected via p2p.\nNot the HTTP port or any other port.",
+                    "type": "integer"
+                }
+            }
+        },
+        "types.MultiAddr": {
+            "type": "object",
+            "properties": {
+                "ip_info": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.IPInfo"
+                    }
+                },
+                "maddr": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

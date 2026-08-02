@@ -1,0 +1,131 @@
+.network-indicator-wrapper {
+  position: relative;
+  z-index: 1001;
+}
+
+.network-indicator-container {
+  display: flex;
+  height: 2.5rem;
+  padding: var(--space-2) var(--space-4);
+  align-items: center;
+  gap: var(--space-3);
+  border-radius: var(--radius-4);
+  border: 1px solid var(--border-color-2);
+  background: rgba(0, 31, 24, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.network-indicator-container:hover {
+  background: rgba(0, 31, 24, 0.6);
+  border-color: var(--success-color);
+}
+
+.network-status {
+  display: flex;
+  width: 0.875rem;
+  height: 0.875rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.network-label {
+  color: var(--white);
+  font-family: 'Inter Variable', sans-serif;
+  font-size: var(--typography-font-size-2);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--typography-line-height-2);
+  letter-spacing: var(--typography-letter-spacing-2);
+  white-space: nowrap;
+}
+
+.green-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--success-color);
+  position: relative;
+  box-shadow: 0 0 8px rgba(86, 186, 159, 0.6);
+}
+
+.network-indicator-dropdown-icon {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  font-size: 0.75rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.network-indicator-container:hover .network-indicator-dropdown-icon {
+  opacity: 1;
+}
+
+.network-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 200px;
+  background: var(--panel_new);
+  border: 1px solid var(--border-color-2);
+  border-radius: var(--radius-4);
+  overflow: hidden;
+  z-index: 1002;
+  backdrop-filter: blur(45px);
+  -webkit-backdrop-filter: blur(45px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.network-dropdown-item {
+  display: flex;
+  height: 3rem;
+  padding: 0 var(--space-4);
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--white);
+  font-family: 'Inter Variable', sans-serif;
+  font-size: var(--typography-font-size-2);
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.network-dropdown-item.selected {
+  background: var(--accent-blue);
+}
+
+.network-dropdown-item:hover:not(.selected) {
+  background: var(--panel-outline);
+}
+
+.network-dropdown-item:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .network-indicator-container {
+    height: 2.25rem;
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .network-label {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+  }
+
+  .network-status {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .green-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .network-dropdown-menu {
+    min-width: 180px;
+  }
+}

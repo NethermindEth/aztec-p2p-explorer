@@ -1,0 +1,29 @@
+name: Deploy to production
+
+on:
+  workflow_dispatch:
+    inputs:
+      docker_tag:
+        description: "Docker tag to promote.  Example: 4c8509c"
+        required: true
+        default: latest
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  attestations: write
+  contents: read
+
+jobs:
+  deploy:
+    uses: NethermindEth/github-workflows/.github/workflows/docker-promote-jfrog.yaml@v1.10.1
+    with:
+      image_name: aztec-p2p-explorer
+      group_name: modular
+      source_env: dev
+      target_env: prod
+      skip_attest: true
+      tags: ${{ inputs.docker_tag }}

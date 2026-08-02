@@ -1,0 +1,58 @@
+.client-type-chart-container {
+  display: grid;
+  grid-template-columns: 1.75fr 1fr;
+  gap: var(--Space-6, 1rem);
+  height: 100%;
+  width: 100%;
+}
+
+.table-column-header-cell-clienttype {
+  font-size: 0.875rem;
+  font-weight: 400 !important;
+  line-height: 1.25rem;
+  letter-spacing: -0.005rem;
+  color: var(--Primary-White, #8e8c99);
+}
+
+.table-cell-clienttype {
+  width: 2rem !important;
+}
+
+.table-row-header-cell-clienttype,
+.table-cell-clienttype {
+  box-shadow: none !important;
+  text-transform: capitalize;
+}
+
+.table-row-clienttype {
+  border-bottom: 1px solid #2c2f33;
+}
+
+.table-row-clienttype:last-child {
+  border-bottom: none;
+}
+
+.client-type-table-header {
+  border-top: 1px solid var(--panel-outline);
+  background: var(--panelDark_new, #05070a);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .table-row-header-cell-clienttype,
+  .table-cell-clienttype {
+    box-shadow: none !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .client-type-chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Space-6, 1rem);
+    height: 100%;
+    width: 100%;
+  }
+}

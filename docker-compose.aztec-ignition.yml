@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  aztec-mainnet-explorer:
+    build:
+      context: .
+      args:
+        - VITE_AZTEC_NETWORK=aztec-mainnet
+    environment:
+      - AZTEC_NETWORK=aztec-mainnet
+    ports:
+      - "8081:8080"
+    command: >
+      server
+      --network aztec-mainnet
+      --db-dsn "postgres://explorer:explorer@postgres:5432/explorer_mainnet?sslmode=disable"
+      --maxmind-dir /var/lib/GeoIP
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=explorer_mainnet
+      - POSTGRES_USER=explorer
+      - POSTGRES_PASSWORD=explorer
+    volumes:
+      - postgres_mainnet_data:/var/lib/postgresql/data
+    ports:
+      - "15433:5432"
+
+volumes:
+  postgres_mainnet_data:
