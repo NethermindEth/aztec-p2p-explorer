@@ -11,7 +11,7 @@ require (
 	github.com/dusted-go/logging v1.3.0
 	github.com/ethereum/go-ethereum v1.16.5
 	github.com/friendsofgo/errors v0.9.2
-	github.com/go-testfixtures/testfixtures/v3 v3.16.0
+	github.com/go-testfixtures/testfixtures/v3 v3.19.0
 	github.com/golang-migrate/migrate/v4 v4.19.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/joho/godotenv v1.5.1
@@ -49,7 +49,7 @@ require (
 	github.com/go-openapi/spec v0.21.0 // indirect
 	github.com/go-openapi/swag v0.23.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
-	github.com/goccy/go-yaml v1.17.1 // indirect
+	github.com/goccy/go-yaml v1.18.0 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
