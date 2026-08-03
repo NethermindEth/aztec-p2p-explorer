@@ -47,7 +47,7 @@ COPY . .
 RUN CGO_ENABLED=0 make build-production
 
 # Set up the final runtime environment based on Debian Bookworm
-FROM alpine:3.22 AS aztec-p2p-explorer-runtime
+FROM alpine:3.24 AS aztec-p2p-explorer-runtime
 
 # Install CA certificates
 RUN apk add --no-cache ca-certificates file
