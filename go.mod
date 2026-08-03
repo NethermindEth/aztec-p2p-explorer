@@ -22,8 +22,8 @@ require (
 	github.com/mitchellh/hashstructure/v2 v2.0.2
 	github.com/multiformats/go-multiaddr v0.16.0
 	github.com/oschwald/geoip2-golang v1.11.0
-	github.com/peterldowns/pgtestdb v0.0.15
-	github.com/peterldowns/pgtestdb/migrators/golangmigrator v0.0.15
+	github.com/peterldowns/pgtestdb v0.1.1
+	github.com/peterldowns/pgtestdb/migrators/golangmigrator v0.1.1
 	github.com/prometheus/client_golang v1.22.0
 	github.com/samber/slog-echo v1.17.2
 	github.com/spf13/cobra v1.10.1
@@ -56,7 +56,6 @@ require (
 	github.com/holiman/uint256 v1.3.2 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/ipfs/go-cid v0.4.1 // indirect
-	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.8 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
