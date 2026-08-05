@@ -1,5 +1,5 @@
 # Build the frontend first, then the backend which will consume the frontend, then the runtime
-FROM node:24-slim AS node-build-env
+FROM node:25-slim AS node-build-env
 ENV P2P_BACKEND_EXPLORER_DEPENDENCIES_LAST_UPDATED=2024-11-28
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME/bin:$PATH"
@@ -24,7 +24,7 @@ RUN pnpm build
 
 # Now we build the backend. We will copy the frontend assets from the frontend build
 # so that we can embed them into the backend binary
-FROM golang:1.25.12-alpine AS go-build-env
+FROM golang:1.26.5-alpine AS go-build-env
 
 # Update the date to bust the cache and trigger downloading dependencies
 ENV P2P_EXPLORER_DEPENDENCIES_LAST_UPDATED=2024-11-28
@@ -47,7 +47,7 @@ COPY . .
 RUN CGO_ENABLED=0 make build-production
 
 # Set up the final runtime environment based on Debian Bookworm
-FROM alpine:3.22 AS aztec-p2p-explorer-runtime
+FROM alpine:3.24 AS aztec-p2p-explorer-runtime
 
 # Install CA certificates
 RUN apk add --no-cache ca-certificates file
