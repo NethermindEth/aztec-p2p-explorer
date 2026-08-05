@@ -65,8 +65,13 @@ func serverMain(cmd *cobra.Command, args []string) {
 
 	bindAddr := viper.GetString(bindAddrF)
 	maxmindPath := viper.GetString(maxmindDirF)
+	var maxMindClient maxmind.Client
 	maxMindClient, err := maxmind.NewClient(maxmindPath)
-	cobra.CheckErr(err)
+	if err != nil {
+		logger.Warn("GeoLite2 databases unavailable, running without geo enrichment",
+			"dir", maxmindPath, "err", err)
+		maxMindClient = maxmind.NewNoopClient()
+	}
 
 	dbConfig := &database.Config{
 		DatabaseSourceName: viper.GetString(dbDSNF),
