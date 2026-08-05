@@ -35,7 +35,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [selectedValues, setSelectedValues] = useState<string[]>(value);
   const [isMobile] = useAtom(isMobileAtom);
   const menuRef = useRef<HTMLDivElement>(null);
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleValueChange = (newValue: string) => {
     newValue = newValue === '' ? 'Unknown' : newValue;
