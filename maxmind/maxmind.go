@@ -92,6 +92,20 @@ func (c *MaxMindClient) Close() error {
 	return nil
 }
 
+// NewNoopClient returns a Client that resolves nothing, so the server can
+// run without geo enrichment when the GeoLite2 databases are unavailable.
+func NewNoopClient() *noopClient {
+	return &noopClient{}
+}
+
+type noopClient struct{}
+
+func (c *noopClient) GetAddrInfo(string) (*types.GeoInfo, error) {
+	return &types.GeoInfo{}, nil
+}
+
+func (c *noopClient) Close() error { return nil }
+
 type mockClient struct{}
 
 func NewMockClient() *mockClient {

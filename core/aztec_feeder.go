@@ -154,17 +154,14 @@ func WithHistorySize(size int) func(*AztecFeederClient) {
 
 // Start begins polling for the latest L2 tips and node info
 func (r *AztecFeederClient) Start(ctx context.Context) error {
-	// Populate the latest tips before starting the poller
-	err := r.updateL2Tips(ctx)
-	if err != nil {
-		return err
+	// A failed first poll is not fatal: the poller keeps retrying and sync
+	// classification reports unknown until tips arrive.
+	if err := r.updateL2Tips(ctx); err != nil {
+		r.logger.Warn("Initial tips poll failed, starting degraded", "err", err)
 	}
 
-	// Populate the node info (including ENR) before starting the poller
-	err = r.updateNodeInfo(ctx)
-	if err != nil {
+	if err := r.updateNodeInfo(ctx); err != nil {
 		r.logger.Warn("Failed to update node info on start", "err", err)
-		// Don't fail startup if node info fetch fails
 	}
 
 	go r.pollL2Tips(ctx)

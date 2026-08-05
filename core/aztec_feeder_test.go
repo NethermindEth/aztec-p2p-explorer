@@ -641,8 +641,9 @@ func TestAztecFeederClient_Start_InitialError(t *testing.T) {
 	ctx := context.Background()
 	err := client.Start(ctx)
 
-	require.Error(t, err)
-	assert.Contains(t, err.Error(), "RPC error -32000: Server error")
+	// A failed first poll starts the client degraded instead of failing.
+	require.NoError(t, err)
+	assert.Nil(t, client.GetL2Tips())
 }
 
 func TestAztecFeederClient_ConcurrentAccess(t *testing.T) {
