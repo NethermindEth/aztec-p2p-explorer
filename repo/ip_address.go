@@ -30,7 +30,7 @@ func (r *PeerRepository) CreateIPAddress(ctx context.Context, ipInfo *coretypes.
 			return err
 		}
 
-		asID, err := r.insertASO(ctx, tx, ipInfo.ASOrganization, int(ipInfo.ASNumber)) //nolint:gosec // ignore integer overflow
+		asID, err := r.insertASO(ctx, tx, ipInfo.ASOrganization, int(ipInfo.ASNumber))
 		if err != nil {
 			return err
 		}

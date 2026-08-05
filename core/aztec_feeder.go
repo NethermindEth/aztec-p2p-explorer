@@ -215,15 +215,20 @@ func (r *AztecFeederClient) fetchTipsPinnedOrProbe(ctx context.Context) error {
 	return lastErr
 }
 
+const jsonRPCVersionField = "jsonrpc"
+
+func rpcRequestBody(method string) map[string]interface{} {
+	return map[string]interface{}{
+		jsonRPCVersionField: "2.0",
+		"method":            method,
+		"params":            []interface{}{},
+		"id":                1,
+	}
+}
+
 // fetchL2Tips performs a single tips request with the given RPC method.
 func (r *AztecFeederClient) fetchL2Tips(ctx context.Context, method string) error {
-	// Prepare RPC request
-	requestBody := map[string]interface{}{
-		"jsonrpc": "2.0",
-		"method":  method,
-		"params":  []interface{}{},
-		"id":      1,
-	}
+	requestBody := rpcRequestBody(method)
 
 	// Marshal / request-construction errors are programmer or config bugs,
 	// not runtime poll failures — don't route them through failPoll.
@@ -513,13 +518,7 @@ func (r *AztecFeederClient) ValidateNodeSync(
 
 // updateNodeInfo fetches node info including ENR from the Aztec RPC
 func (r *AztecFeederClient) updateNodeInfo(ctx context.Context) error {
-	// Prepare RPC request
-	requestBody := map[string]interface{}{
-		"jsonrpc": "2.0",
-		"method":  "node_getNodeInfo",
-		"params":  []interface{}{},
-		"id":      1,
-	}
+	requestBody := rpcRequestBody("node_getNodeInfo")
 
 	jsonBody, err := json.Marshal(requestBody)
 	if err != nil {

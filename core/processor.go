@@ -40,14 +40,20 @@ var peerSyncClassificationTotal = promauto.NewCounterVec(prometheus.CounterOpts{
 	Help: "Per-peer sync classifications, labelled by peer_id, outcome and reason.",
 }, []string{"peer_id", "outcome", "reason"})
 
+const (
+	outcomeSynced    = "synced"
+	outcomeNotSynced = "not_synced"
+	outcomeUnknown   = "unknown"
+)
+
 func classifyOutcome(synced, obtained bool) string {
 	if !obtained {
-		return "unknown"
+		return outcomeUnknown
 	}
 	if synced {
-		return "synced"
+		return outcomeSynced
 	}
-	return "not_synced"
+	return outcomeNotSynced
 }
 
 type CrawlProperties struct {

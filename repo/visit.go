@@ -640,9 +640,9 @@ func getSortColumn(sort string) (string, error) {
 	switch sort {
 	case "", "last_seen":
 		return "peers.last_seen", nil
-	case "created_at":
+	case sortColumnCreatedAt:
 		return "peers.created_at", nil
-	case "block_height":
+	case sortColumnBlockHeight:
 		return "latest_peer_states.block_height", nil
 	default:
 		return "", fmt.Errorf("invalid sort column: %s", sort)

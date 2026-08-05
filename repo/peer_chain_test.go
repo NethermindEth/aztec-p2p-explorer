@@ -45,7 +45,7 @@ func TestCreatePeerChainInfos(t *testing.T) {
 	require.NoError(t, err)
 	dbPeerChainInfo, err := models.PeersStates(models.PeersStateWhere.PeerID.EQ(dbPeer.ID)).One(context.Background(), repo.db)
 	require.NoError(t, err)
-	assert.Equal(t, int64(PeerChainInfo.BlockHeight), dbPeerChainInfo.BlockHeight.Int64) //nolint:gosec // ignore integer overflow
+	assert.Equal(t, int64(PeerChainInfo.BlockHeight), dbPeerChainInfo.BlockHeight.Int64)
 	assert.Equal(t, PeerChainInfo.SpecVersion, dbPeerChainInfo.SpecVersion.String)
 	assert.True(t, dbPeerChainInfo.IsSynced.Bool)
 }

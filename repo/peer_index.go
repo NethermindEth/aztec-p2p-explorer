@@ -211,7 +211,7 @@ func (r *PeerRepository) addGeoInfoToIndexEntry(entry *PeerIndexEntry, geoInfo *
 	entry.ASName = null.StringFrom(geoInfo.ASOrganization)
 
 	if geoInfo.ASNumber > 0 {
-		entry.ASNumber = null.IntFrom(int(min(geoInfo.ASNumber, math.MaxInt32))) //nolint:gosec // bounded by min()
+		entry.ASNumber = null.IntFrom(int(min(geoInfo.ASNumber, math.MaxInt32)))
 	}
 }
 
@@ -358,7 +358,7 @@ func (r *PeerRepository) GetPeersForMap(
 	if options.PageSize <= 0 || options.PageSize > 50000 {
 		options.PageSize = 50000
 	}
-	query += fmt.Sprintf(" LIMIT %d", options.PageSize)
+	query += fmt.Sprintf(" LIMIT %d", options.PageSize) //nolint:gosec // bounded int, values are parameterized
 
 	rows, err := r.db.QueryContext(ctx, query, args...)
 	if err != nil {
@@ -535,7 +535,7 @@ func (r *PeerRepository) queryPeerIndex(ctx context.Context, opt *PeerQueryOptio
 	query += fmt.Sprintf(" ORDER BY %s %s, peer_multi_hash %s", sortCol, order, order)
 
 	// Add LIMIT (fetch one extra for pagination)
-	query += fmt.Sprintf(" LIMIT %d", pageSize+1)
+	query += fmt.Sprintf(" LIMIT %d", pageSize+1) //nolint:gosec // bounded int, values are parameterized
 
 	// Execute query
 	rows, err := r.db.QueryContext(ctx, query, args...)
@@ -917,7 +917,7 @@ func (r *PeerRepository) fetchIPInfoForMultiAddr(ctx context.Context, multiAddrI
 			Port:      port,
 			GeoInfo: &coretypes.GeoInfo{
 				ASOrganization: asName.String,
-				ASNumber:       uint(max(0, min(asNumber.Int64, math.MaxUint32))), //nolint:gosec // bounded by min/max
+				ASNumber:       uint(max(0, min(asNumber.Int64, math.MaxUint32))),
 				City:           cityName.String,
 				Country:        countryName.String,
 				CountryISO:     countryISO.String,

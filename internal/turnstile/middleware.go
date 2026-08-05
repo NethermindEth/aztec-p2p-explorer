@@ -76,21 +76,23 @@ func (m *Middleware) extractToken(r *http.Request) string {
 	return ""
 }
 
+const errorField = "error"
+
 func (m *Middleware) verifyAndCache(ctx context.Context, token, ip, ua string) (int, map[string]any) {
 	vr, err := m.Verifier.Verify(ctx, token, ip)
 	if err != nil {
-		return http.StatusBadGateway, map[string]any{"error": "turnstile_unavailable"}
+		return http.StatusBadGateway, map[string]any{errorField: "turnstile_unavailable"}
 	}
 	if !vr.Success {
-		return http.StatusUnauthorized, map[string]any{"error": "turnstile_failed", "codes": vr.ErrorCodes}
+		return http.StatusUnauthorized, map[string]any{errorField: "turnstile_failed", "codes": vr.ErrorCodes}
 	}
 	if len(m.Config.AllowedHostnames) > 0 {
 		if _, ok := m.Config.AllowedHostnames[vr.Hostname]; !ok {
-			return http.StatusForbidden, map[string]any{"error": "hostname_mismatch", "got": vr.Hostname}
+			return http.StatusForbidden, map[string]any{errorField: "hostname_mismatch", "got": vr.Hostname}
 		}
 	}
 	if m.Config.ExpectedAction != "" && vr.Action != "" && vr.Action != m.Config.ExpectedAction {
-		return http.StatusForbidden, map[string]any{"error": "action_mismatch", "got": vr.Action}
+		return http.StatusForbidden, map[string]any{errorField: "action_mismatch", "got": vr.Action}
 	}
 	ts, _ := time.Parse(time.RFC3339Nano, vr.ChallengeTS)
 	exp := time.Now().Add(m.Config.CacheTTL)
@@ -117,7 +119,7 @@ func (m *Middleware) Echo() func(next http.Handler) http.Handler {
 
 			token := m.extractToken(r)
 			if token == "" && m.Config.Mode == ModeEnforce {
-				writeJSON(w, http.StatusUnauthorized, map[string]any{"error": "missing_token"})
+				writeJSON(w, http.StatusUnauthorized, map[string]any{errorField: "missing_token"})
 				return
 			}
 

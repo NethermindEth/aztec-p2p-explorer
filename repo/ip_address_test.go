@@ -63,5 +63,5 @@ func TestCreateIPAddress(t *testing.T) {
 	dbAS, err := models.AutonomousSystems(models.AutonomousSystemWhere.AsName.EQ("TestAS")).One(context.Background(), repo.db)
 	require.NoError(t, err)
 	assert.Equal(t, ip.ASOrganization, dbAS.AsName)
-	assert.Equal(t, int(ip.ASNumber), dbAS.AsNumber) //nolint:gosec // ignore integer overflow
+	assert.Equal(t, int(ip.ASNumber), dbAS.AsNumber)
 }

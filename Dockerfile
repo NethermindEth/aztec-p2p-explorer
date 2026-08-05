@@ -24,7 +24,7 @@ RUN pnpm build
 
 # Now we build the backend. We will copy the frontend assets from the frontend build
 # so that we can embed them into the backend binary
-FROM golang:1.24.6-alpine AS go-build-env
+FROM golang:1.25.12-alpine AS go-build-env
 
 # Update the date to bust the cache and trigger downloading dependencies
 ENV P2P_EXPLORER_DEPENDENCIES_LAST_UPDATED=2024-11-28

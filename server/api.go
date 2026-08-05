@@ -37,13 +37,13 @@ func cleanPeer(peer *repo.PeerInfo) *repo.PeerInfo {
 				GeoInfo: &types.GeoInfo{
 					ASOrganization: "",
 					ASNumber:       0,
-					City:           ipInfo.GeoInfo.City,
-					Country:        ipInfo.GeoInfo.Country,
-					CountryISO:     ipInfo.GeoInfo.CountryISO,
-					Continent:      ipInfo.GeoInfo.Continent,
-					ContinentCode:  ipInfo.GeoInfo.ContinentCode,
-					Latitude:       roundFloat(ipInfo.GeoInfo.Latitude, 1),
-					Longitude:      roundFloat(ipInfo.GeoInfo.Longitude, 1),
+					City:           ipInfo.City,
+					Country:        ipInfo.Country,
+					CountryISO:     ipInfo.CountryISO,
+					Continent:      ipInfo.Continent,
+					ContinentCode:  ipInfo.ContinentCode,
+					Latitude:       roundFloat(ipInfo.Latitude, 1),
+					Longitude:      roundFloat(ipInfo.Longitude, 1),
 				},
 			})
 		}

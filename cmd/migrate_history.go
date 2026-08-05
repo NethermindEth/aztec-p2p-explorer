@@ -157,9 +157,10 @@ func migrateHistoryMain(cmd *cobra.Command, _ []string) {
 			continue
 		}
 
-		if source == "peer_visits_index" {
+		switch source {
+		case "peer_visits_index":
 			peerIndexDays++
-		} else if source == "crawls.dialable_peers" {
+		case "crawls.dialable_peers":
 			crawlTableDays++
 		}
 
