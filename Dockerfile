@@ -1,5 +1,5 @@
 # Build the frontend first, then the backend which will consume the frontend, then the runtime
-FROM node:25-slim AS node-build-env
+FROM node:24-slim AS node-build-env
 ENV P2P_BACKEND_EXPLORER_DEPENDENCIES_LAST_UPDATED=2024-11-28
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME/bin:$PATH"
