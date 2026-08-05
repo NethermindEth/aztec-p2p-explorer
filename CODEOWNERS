@@ -1,8 +1,1 @@
-*.go gpevnev
-*.sql gpevnev
-
-/internal/ gpevnev EdgarBarrantes
-/docs/ gpevnev EdgarBarrantes
-/frontend EdgarBarrantes
-/maxmind/ gpevnev
-/testdata/ gpevnev EdgarBarrantes
+* @Giri-Aayush
