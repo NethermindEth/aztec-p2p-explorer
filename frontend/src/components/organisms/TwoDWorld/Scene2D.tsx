@@ -47,7 +47,7 @@ const Scene2D: React.FC<SceneProps> = ({ isHoverable }) => {
   const isMapView = location.pathname === '/';
   const [zoomLevel, setZoomLevel] = useState(1);
   const [hoveredMarker, setHoveredMarker] = useState<HoveredMarker | null>(null);
-  const debounceRef = useRef<NodeJS.Timeout>();
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>();
 
   const portalTarget = document.getElementById('canvas-container');
 
