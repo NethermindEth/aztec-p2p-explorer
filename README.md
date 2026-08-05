@@ -14,12 +14,25 @@ P2P network monitoring for [Aztec](https://aztec.network): crawls the DHT, geolo
 
 Live instance: https://aztecnodes.xyz
 
+![Aztec P2P Explorer dashboard](docs/dashboard.png)
+
 ## How it works
 
 - A [Nebula](https://github.com/dennis-tra/nebula) crawler walks the Aztec DHT on a fixed interval and writes visit data to disk.
 - The processor enriches each peer — GeoIP location (MaxMind GeoLite2), ENR and status decoding, sync validation against a reference Aztec node — and stores it in Postgres.
 - A feeder polls the reference node's RPC for chain tips (`node_getChainTips` on v5+ nodes, `node_getL2Tips` before that) used in sync classification.
 - An Echo REST API serves peers, analytics, and map data. The React frontend is embedded in the binary and served by the same process.
+
+```mermaid
+flowchart LR
+    RPC[Aztec node RPC] -->|chain tips| F[Feeder]
+    C[Nebula crawler] -->|peer visits| P[Processor]
+    G[(GeoLite2)] --> P
+    F -->|sync reference| P
+    P --> DB[(Postgres)]
+    DB --> API[REST API]
+    API --> UI[Web dashboard]
+```
 
 ## Running it
 
