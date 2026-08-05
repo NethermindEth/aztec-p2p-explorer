@@ -1,5 +1,5 @@
 # Use the official Golang image
-FROM golang:1.24.4-bookworm AS go-build-env
+FROM golang:1.25.12-bookworm AS go-build-env
 
 # Update the date to bust the cache and trigger downloading dependencies
 ENV P2P_EXPLORER_DEPENDENCIES_LAST_UPDATED=2024-06-21

@@ -225,7 +225,7 @@ func newVersionedMockServer(t *testing.T, method string, tips *L2Tips) *versione
 		w.Header().Set("Content-Type", "application/json")
 		require.NoError(t, json.NewEncoder(w).Encode(response))
 	}))
-	t.Cleanup(m.Server.Close)
+	t.Cleanup(m.Close)
 	return m
 }
 

@@ -95,7 +95,7 @@ func serverMain(cmd *cobra.Command, args []string) {
 		maxBlockDiff = 30
 	}
 	const historyBuffer = 10
-	historySize := int(maxBlockDiff*2 + historyBuffer) //nolint:gosec // Safe conversion for small values
+	historySize := int(maxBlockDiff*2 + historyBuffer)
 
 	aztecFeeder := core.NewAztecFeederClient(logger, rpcURL,
 		core.WithHistorySize(historySize))

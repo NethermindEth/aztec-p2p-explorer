@@ -150,12 +150,12 @@ func (h *Handler) GetPeersMap(c echo.Context) error {
 		for _, peer := range peers {
 			for _, addr := range peer.MultiAddresses {
 				for _, ip := range addr.IPList {
-					if ip.GeoInfo == nil || ip.GeoInfo.Latitude == 0 && ip.GeoInfo.Longitude == 0 || ip.GeoInfo.City == "" {
+					if ip.GeoInfo == nil || ip.Latitude == 0 && ip.Longitude == 0 || ip.City == "" {
 						continue
 					}
 
 					// Create a key using city and country to distinguish cities with the same name
-					cityKey := ip.GeoInfo.City + "_" + ip.GeoInfo.Country
+					cityKey := ip.City + "_" + ip.Country
 
 					city, exists := cityMap[cityKey]
 					if !exists {
@@ -169,9 +169,9 @@ func (h *Handler) GetPeersMap(c echo.Context) error {
 							City      string
 						}{
 							PeerIDs:   make(map[string]bool),
-							Continent: ip.GeoInfo.Continent,
-							Country:   ip.GeoInfo.Country,
-							City:      ip.GeoInfo.City,
+							Continent: ip.Continent,
+							Country:   ip.Country,
+							City:      ip.City,
 						}
 						cityMap[cityKey] = city
 					}
@@ -180,8 +180,8 @@ func (h *Handler) GetPeersMap(c echo.Context) error {
 					if !city.PeerIDs[peer.PeerID] {
 						city.PeerIDs[peer.PeerID] = true
 						city.Count++
-						city.LatSum += ip.GeoInfo.Latitude
-						city.LongSum += ip.GeoInfo.Longitude
+						city.LatSum += ip.Latitude
+						city.LongSum += ip.Longitude
 					}
 				}
 			}
