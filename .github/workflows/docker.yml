@@ -24,7 +24,7 @@ jobs:
 
   Build:
     needs: test
-    uses: NethermindEth/github-workflows/.github/workflows/docker-build-push-jfrog.yaml@v1.11.4
+    uses: NethermindEth/github-workflows/.github/workflows/docker-build-push-jfrog.yaml@v2.0.2
     with:
       group_name: modular
       image_name: aztec-p2p-explorer

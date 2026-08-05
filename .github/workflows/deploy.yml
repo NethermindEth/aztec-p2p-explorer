@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   deploy:
-    uses: NethermindEth/github-workflows/.github/workflows/docker-promote-jfrog.yaml@v1.10.1
+    uses: NethermindEth/github-workflows/.github/workflows/docker-promote-jfrog.yaml@v2.0.2
     with:
       image_name: aztec-p2p-explorer
       group_name: modular
