@@ -80,7 +80,7 @@
     "prettier": "^3.3.3",
     "storybook": "^8.2.8",
     "typescript": "^5.8.3",
-    "uuid": "^13.0.0",
+    "uuid": "^14.0.1",
     "vite": "^6.4.3",
     "vite-plugin-checker": "^0.9.3",
     "vite-plugin-svgr": "^4.2.0"
