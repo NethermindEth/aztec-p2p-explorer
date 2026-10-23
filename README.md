@@ -12,8 +12,6 @@
 
 P2P network monitoring for [Aztec](https://aztec.network): crawls the DHT, geolocates peers, tracks client versions and sync status, and serves it all through a REST API and a web dashboard.
 
-Live instance: https://aztecnodes.xyz
-
 ![Aztec P2P Explorer dashboard](docs/dashboard.png)
 
 ## How it works
